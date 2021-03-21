@@ -6,19 +6,22 @@ import _config from "./config";
 import { Web3Provider } from "contexts/Web3";
 import { ContractsProvider } from "contexts/Contracts";
 import { LoadingProvider } from "contexts/Loading";
+import { IntlProvider } from "react-intl";
 
 const config = merge(MUIConfig, _config);
 
 export default class Demo extends Component {
   render() {
     return (
-      <LoadingProvider>
-        <Web3Provider>
-          <ContractsProvider>
-            <App config={config} />
-          </ContractsProvider>
-        </Web3Provider>
-      </LoadingProvider>
+      <IntlProvider>
+        <LoadingProvider>
+          <Web3Provider>
+            <ContractsProvider>
+              <App config={config} />
+            </ContractsProvider>
+          </Web3Provider>
+        </LoadingProvider>
+      </IntlProvider>
     );
   }
 }

@@ -26,7 +26,9 @@ const config = {
     defaultIsDarkMode: false,
     defaultIsRTL: false, //change this to true for default Right to Left Language support
   },
-  pages: {},
+  pages: {
+    LandingPage: lazy(() => import("../pages/Dashboard/Dashboard")),
+  },
 };
 
 export default config;

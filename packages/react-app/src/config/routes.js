@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-key */
-import AuthorizedRoute from "base-shell/lib/components/AuthorizedRoute/AuthorizedRoute";
 import React, { lazy } from "react";
+import { Route } from "react-router-dom";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 
-const routes = [
-  <AuthorizedRoute path="/dashboard" exact component={Dashboard} />,
-];
+const routes = [<Route path="/" exact component={Dashboard} />];
 
 export default routes;

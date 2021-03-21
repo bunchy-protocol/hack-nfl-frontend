@@ -7,11 +7,9 @@ import useContracts from "hooks/hooks/useContracts";
 import useWeb3 from "hooks/hooks/useWeb3";
 import Page from "material-ui-shell/lib/containers/Page";
 import React from "react";
-import { useIntl } from "react-intl";
 import NFTList from "./components/NFTList";
 
 const Dashboard = () => {
-  const intl = useIntl();
   const { connected } = useWeb3();
 
   const {
@@ -27,10 +25,7 @@ const Dashboard = () => {
 
   return (
     <Page
-      pageTitle={intl.formatMessage({
-        id: "dashboard",
-        defaultMessage: "NFL Dashboard",
-      })}
+      pageTitle={"NFL Dashboard"}
       contentStyle={{ overflow: "hidden" }}
       appBarContent={
         <Toolbar disableGutters>
