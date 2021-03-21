@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  - "../subgraph/schema.graphql"
+  - "scalars.graphql"
+generates:
+  types/subgraph-entities.ts:
+    plugins:
+      - "typescript"
+config:
+  scalars:
+    BigInt: string
+    BigDecimal: string
+    Bytes: string
