@@ -1,69 +1,29 @@
 import { Toolbar } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import AmountCard from "components/AmountCard";
 import ActionCard from "components/ActionCard";
+import AmountCard from "components/AmountCard";
 import ConnectComposite from "components/ConnectComposite";
 import useContracts from "hooks/hooks/useContracts";
+import useWeb3 from "hooks/hooks/useWeb3";
 import Page from "material-ui-shell/lib/containers/Page";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useIntl } from "react-intl";
 import NFTList from "./components/NFTList";
-import useWeb3 from "hooks/hooks/useWeb3";
 
 const Dashboard = () => {
   const intl = useIntl();
   const { connected } = useWeb3();
 
-  const [nfts, setNfts] = useState([]);
-  const [collatNfts, setCollatNfts] = useState([]);
-  const [collateral, setCollateral] = useState("0");
-  const [debt, setDebt] = useState("0");
-  const [collateralizationRatio, setCollateralizationRatio] = useState("0");
   const {
-    masksForUser,
-    getCollateral,
-    getCollateralizationRatio,
-    getDebt,
-    getCollateralizedMask,
+    nfts,
+    collatNfts,
+    collateral,
+    debt,
     handleDeposit,
     handleDepositNFT,
     handleWithdrawNFT,
     handleBorrow,
   } = useContracts();
-
-  useEffect(() => {
-    async function fetchTokens() {
-      setNfts(await masksForUser());
-    }
-    async function fetchCollateralizedMask() {
-      setCollatNfts(await getCollateralizedMask());
-    }
-    async function fetchCollateral() {
-      setCollateral(await getCollateral());
-    }
-    async function fetchCollateralizationRatio() {
-      setCollateralizationRatio(await getCollateralizationRatio());
-    }
-    async function fetchDebt() {
-      setDebt(await getDebt());
-    }
-    fetchTokens();
-    fetchCollateralizedMask();
-    fetchDebt();
-    fetchCollateral();
-    fetchCollateralizationRatio();
-  }, [
-    setNfts,
-    setCollatNfts,
-    setCollateral,
-    setDebt,
-    setCollateralizationRatio,
-    masksForUser,
-    getCollateral,
-    getCollateralizationRatio,
-    getDebt,
-    getCollateralizedMask,
-  ]);
 
   return (
     <Page

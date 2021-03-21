@@ -46,7 +46,7 @@ const Provider: React.FC = ({ children }) => {
             },
           };
           const web3Modal = new Web3Modal({
-            cacheProvider: false,
+            cacheProvider: true,
             providerOptions,
             theme: "dark",
           });

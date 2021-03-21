@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
@@ -35,7 +35,9 @@ export default function NFTList({ nfts, header, actionLabel, action }) {
     <div className={classes.root}>
       <GridList cols={3} cellHeight={300} className={classes.gridList}>
         <GridListTile key="Subheader" cols={3} style={{ height: "auto" }}>
-          <ListSubheader component="div">{header}</ListSubheader>
+          <ListSubheader component="div">
+            <Typography variant="H1">{header}</Typography>
+          </ListSubheader>
         </GridListTile>
         {nfts.map((nft) => (
           <GridListTile key={nft.img}>
